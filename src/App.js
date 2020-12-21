@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import data from './data';
+import Homepage from './pages/Homepage';
+import { useState } from 'react';
+import GlobalStyle from './components/GlobalStyles';
+import Navigation from './components/Navigation';
 
 function App() {
+  const [articles, setArticles] = useState(data());
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <GlobalStyle />
+      <Navigation />
+      <Homepage articles={articles} setArticles={setArticles} />
     </div>
   );
 }
